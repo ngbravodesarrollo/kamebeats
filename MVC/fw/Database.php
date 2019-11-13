@@ -45,7 +45,7 @@
  		return mysqli_num_rows($this->res);
  	}
  	private function connect(){
- 		if (!$this->cn) $this->cn= mysqli_connect("localhost","root","","intrapango");
+ 		if (!$this->cn) $this->cn= mysqli_connect("localhost","root","","kamebeats");
  	}
 
 }
