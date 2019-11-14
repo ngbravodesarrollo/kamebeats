@@ -12,6 +12,6 @@
 
 		public static function isLogged(){
 			if(isset($_SESSION['idSession']) return true;
-			else header('Location: ../html/Login.php');
+			else header('Location: ../controllers/LoginController.php');
 		}
 	}
