@@ -7,8 +7,7 @@ require "../models/Temas.php";
 require "../views/Tema.php";
 
 
-if(!isset($_GET["id"]))
-    die ("no se ingreso id");
+if(!isset($_GET["id"])) header('Location: ../html/home.html');
 
 $id_tema= $_GET["id"];
 
