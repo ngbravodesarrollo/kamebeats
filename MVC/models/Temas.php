@@ -14,6 +14,10 @@ class TemasModel extends Model {
                             AND is_author =1)");
         return $this->db->fetchAll();	
     }
+
+    public function remove($id_tema){
+        $this->db->query("DELETE FROM temas WHERE id_tema= $id_tema");
+    }
 }	
 
 
