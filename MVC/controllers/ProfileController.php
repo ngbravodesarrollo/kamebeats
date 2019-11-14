@@ -6,19 +6,6 @@ require "../models/Temas.php";
 require "../views/Tema.php";
 require "../views/Profile.php";
 
-/* Aca deberia fijarme si existe sesion. 
-if (!isset($_SESSION['idSesion']))
-	{
-		//header('Location:./login.php');
-		exit();
-	};
-
-*/
-
-if(!isset($_GET["id_usuario"]))
-    die ("no se ingreso id");
-
-$id_usuario = $_GET["id_usuario"];
 
 $profile_view= new Profile;
 $t_model = new TemasModel;
@@ -34,10 +21,11 @@ $profile_view->cantSeguidos = $l_model->getCantSeguidosByUsuario($id_usuario);
 
 
 
-foreach ($profile_view->listaTemas as $tema){
+/*foreach ($profile_view->listaTemas as $tema){
 	$tema=array_merge($tema,$l_model->getCantByIDTema($tema['id_tema']));
 	echo json_encode($tema);
 }	//adentro del foreach se ve, afuera no.
+*/
 
 $profile_view->render();
 ?>
