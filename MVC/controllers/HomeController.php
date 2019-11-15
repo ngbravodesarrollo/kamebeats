@@ -13,12 +13,9 @@ require "../views/Home.php";
 $m_tema = new TemasModel;
 $v_home = new Home;
 
-$v_home->t_AutorSeguido=$m_tema->getByFollowed($_SESSION['id_usuario']);
-$v_home->t_maslikeados=$$m_tema->getMasLikeado();
+$v_home->t_AutorSeguido = $m_tema->getByFollowed($_SESSION['username']);
+$v_home->t_maslikeados = $m_tema->getMasLikeado();
 
-
-    public $t_maslikeados;
-    public $t_AutorSeguido;
-    public $cantSeguidos; 
+$v_home->render();
 
 ?>

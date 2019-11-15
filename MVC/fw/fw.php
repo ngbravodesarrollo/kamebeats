@@ -6,4 +6,5 @@ require '../fw/Model.php';
 require '../fw/View.php';
 require '../fw/UserData.php';
 
-User::isLogged();
+USer::InitSession();
+#User::isLogged();

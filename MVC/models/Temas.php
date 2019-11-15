@@ -27,7 +27,7 @@ class TemasModel extends Model {
                             AND  a.id_usuario in 
                                                 (SELECT id_autor
                                                  FROM likes_autores
-                                                 WHERE id_usuario=$id_usuario)
+                                                 WHERE id_usuario='$id_usuario')
                             ORDER BY creado DESC");
         return $this->db->fetchAll();
     }
@@ -36,10 +36,10 @@ class TemasModel extends Model {
         $this->db->query("  SELECT t.nombre, t.descripcion, t.creado,t.id_tema,
                             count(l.id_tema) as cant_likes
                             FROM temas as t
-                            INNER JOIN like_temas as l
+                            INNER JOIN likes_temas as l
                             ON t.id_tema = l.id_tema
                             GROUP BY t.nombre
-                            ORDER BY cant_likes DESC")
+                            ORDER BY cant_likes DESC");
     }
 
 }	
