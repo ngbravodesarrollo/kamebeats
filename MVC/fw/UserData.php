@@ -10,6 +10,6 @@
 
 		public static function isLogged(){
 			if(isset($_SESSION['idSession'])) return true;
-			else header('Location: ../controllers/LoginController.php');
+			else header('Location: ../controllers/LoginController.php',$true, 303);
 		}
 	}

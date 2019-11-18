@@ -1,4 +1,4 @@
-<?php include '../masterpage/master.php';?>
+
 <section>
     <h2> <?= $this->tema['nombre'] ?> </h2>
     <br>

@@ -14,10 +14,7 @@ class TemasModel extends Model {
                             AND is_author =1)");
         return $this->db->fetchAll();	
     }
-
-    public function remove($id_tema){
-        $this->db->query("DELETE FROM temas WHERE id_tema= $id_tema");
-    }
+    
     public function getByFollowed($id_usuario){
         $this->db->query("  SELECT * 
                             FROM temas as t
@@ -40,8 +37,23 @@ class TemasModel extends Model {
                             ON t.id_tema = l.id_tema
                             GROUP BY t.nombre
                             ORDER BY cant_likes DESC");
+        $this->db->fetchAll();
     }
 
+    public function remove($id_tema){
+        $this->db->query("DELETE FROM temas WHERE id_tema= $id_tema");
+    }
+
+    public function create($tema){
+        $this->db->query("INSERT INTO temas (nombre,id_categoria,descripcion,creado) 
+                        VALUES ($tema->nombre,$tema->id_categoria,$tema->descripcion,GETDATE())");
+    }
+
+    public function update($tema){
+        $this->db->query("UPDATE temas SET
+                        nombre=$tema->nombre,id_categoria= $tema->id_categoria,descripcion= $tema->descripcion
+                        WHERE id_tema=$tema->id_tema");
+    }
 }	
 
 

@@ -2,18 +2,42 @@
     require '../fw/fw.php';
     require '../models/Temas.php';
 
-    public class ABMTemaController extends HTTPMetohd
+    public class ABMTemaHandler extends HTTPMetohd
     {
-        public 
+        private $t_model;
+
+        public function __construct(){
+            $t_model= new TemasModel();
+        }
+
+        public function altaTema($tema){
+            $t_model->create($tema);
+        }
+
+        public function modificarTema($tema){
+            $t_model->update($tema);
+        }
+
+        public function bajaTema($idTema){
+
+        }        
     }
     
-    if(!isset($_POST["nombre"])) header("Location: ./HomeController.php");
+    $requestType = $_SERVER['REQUEST_METHOD'];
 
-    //Cargo todos los campos
-    
-
-    if(isset($_POST["id_tema"])){
-        //estoy haciendo un update
+    switch ($requestType) {
+        case 'PUT':
+            # code...
+            break;
+        case 'POST':
+            # code...
+            break;
+        case 'DELETE':
+            
+            break;
+        default:
+            # code...
+            break;
     }
 
 ?>
